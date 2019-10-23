@@ -1,0 +1,4 @@
+# AutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+cn.sgst.tool.druid.autoconfigure.DataSourceAutoConfiguration,\
+cn.sgst.tool.druid.autoconfigure.DruidStatAutoConfiguration

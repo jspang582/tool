@@ -1,0 +1,7 @@
+# AutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+cn.sgst.tool.web.autoconfigure.FastJsonHttpMessageConverterAutoConfiguration,\
+cn.sgst.tool.web.autoconfigure.WebLogAutoConfiguration,\
+cn.sgst.tool.web.autoconfigure.XssFilterAutoConfiguration,\
+cn.sgst.tool.web.autoconfigure.CustomErrorMvcAutoConfiguration,\
+cn.sgst.tool.web.autoconfigure.SpringContextHolderAutoConfiguration

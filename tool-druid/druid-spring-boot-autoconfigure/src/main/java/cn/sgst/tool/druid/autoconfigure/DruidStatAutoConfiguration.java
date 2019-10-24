@@ -61,7 +61,7 @@ public class DruidStatAutoConfiguration {
     @ConditionalOnMissingBean(value = JdkRegexpMethodPointcut.class,search =SearchStrategy.CURRENT )
     public JdkRegexpMethodPointcut druidStatPointcut() {
         JdkRegexpMethodPointcut druidStatPointcut = new JdkRegexpMethodPointcut();
-        String patterns = "cn.sgst.**.service.*";
+        String patterns = "cn.sgst.*.service.*";
         //可以set多个
         druidStatPointcut.setPatterns(patterns);
         return druidStatPointcut;

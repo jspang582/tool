@@ -9,6 +9,7 @@
         <module>tool-web</module>
         <module>tool-druid</module>
         <module>tool-sso</module>
+        <module>tool-oss</module>
     </modules>
 
     <groupId>cn.sgst</groupId>

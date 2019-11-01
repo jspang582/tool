@@ -24,6 +24,8 @@ public class AmazonS3FactoryBean implements FactoryBean<AmazonS3>,InitializingBe
     private String secretKey;
     /** your endPoint start with http or https. default https */
     private String endPoint;
+    /** oss数据中心所在的物理位置 */
+    private String region;
 
     private AmazonS3 amazonS3;
 
@@ -56,7 +58,7 @@ public class AmazonS3FactoryBean implements FactoryBean<AmazonS3>,InitializingBe
         amazonS3 = AmazonS3ClientBuilder.standard()
                 .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(accessKey,secretKey)))
                 .withEndpointConfiguration(
-                        new AwsClientBuilder.EndpointConfiguration(endPoint, "")
+                        new AwsClientBuilder.EndpointConfiguration(endPoint, region == null ? "" : region)
                 ).build();
     }
 

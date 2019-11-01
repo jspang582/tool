@@ -20,7 +20,7 @@ public class SampleAmazonS3Operator implements AmazonS3Operator {
 
 
     public SampleAmazonS3Operator(AmazonS3 conn) {
-        Assert.notNull(conn,"'AmazonS3' must not be null");
+        Assert.notNull(conn,"AmazonS3 special must not be null");
         this.conn = conn;
     }
 

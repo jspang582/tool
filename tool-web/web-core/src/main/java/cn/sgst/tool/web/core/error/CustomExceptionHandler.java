@@ -1,14 +1,11 @@
 package cn.sgst.tool.web.core.error;
 
 import cn.sgst.tool.common.exception.ServiceException;
-import cn.sgst.tool.common.response.Response;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import javax.servlet.http.HttpServletRequest;
-
-import static cn.sgst.tool.web.core.error.CustomErrorAttributes.CUSTOM_ERROR_MAP_NAME;
 
 /**
  * 全局异常捕捉
@@ -26,9 +23,8 @@ public final class CustomExceptionHandler {
      */
     @ExceptionHandler(ServiceException.class)
     public String handleServiceException(ServiceException ex, HttpServletRequest request) {
-        //传入自己的错误代码，必须的，否则不会进入自定义错误页面
+        //传入自己的错误代码，必须的，让自定义状态码与http状态码适配
         request.setAttribute("javax.servlet.error.status_code", ex.getCode());
-        request.setAttribute(CUSTOM_ERROR_MAP_NAME,Response.error(ex.getCode(),ex.getErrorMessage()));
         //转发到springBoot错误处理请求，能适配网页和Ajax的错误处理
         //请求/error后，会进入BasicErrorController(@RequestMapping("${server.error.path:${error.path:/error}}"))
         //页面的数据显示处理是使用：errorAttributes.getErrorAttributes获取显示的，是AbstractErrorController的方法
